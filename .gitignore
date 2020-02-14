@@ -1,0 +1,10 @@
+CMakeFiles/*
+Makefile
+cmake_install.cmake
+out/*
+CMakeCache.txt
+5B/.CMake*
+5B/CMakeFiles/*
+5B/Makefile
+5B/cmake_install.cmake
+
