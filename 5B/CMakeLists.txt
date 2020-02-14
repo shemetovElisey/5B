@@ -1,0 +1,12 @@
+project(5B)
+
+set(EXECUTABLE main.cpp)
+
+set(CMAKE_TUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
+
+add_custom_target(run_5B
+	COMMAND 5b
+	WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+)
+
+add_executable(5b ${EXECUTABLE})
