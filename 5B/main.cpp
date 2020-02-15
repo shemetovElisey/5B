@@ -8,6 +8,15 @@
 
 #include <iostream>
 
+struct list {
+	int v;
+	list *p, *n;
+
+	list( int value = 0, list* prev = NULL, list* next = NULL ) {
+
+	}
+};
+
 int main() {
     
     return 0;
