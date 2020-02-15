@@ -40,6 +40,19 @@ list* list_end(list* l) {
 	return l;
 }
 
+int list_mult(list *l) {
+	list *end = list_end(l);
+
+	int mult = 1;
+	while(l->n) {
+		mult = mult * (l->v + l->n->v + end->v);
+		l = l->n;
+		end = end->p;
+	}
+
+	return mult;
+}
+
 void print_list(list *l) {
 	while(l) {
 		printf( "%d ", l->v );
@@ -51,5 +64,6 @@ void print_list(list *l) {
 int main() {
     list* l = input();
 	print_list(l);
+	printf( "%d\n", list_mult(l) );
     return 0;
 }
