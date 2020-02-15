@@ -14,6 +14,7 @@ add_compile_options(-std=c++17)
 add_compile_options(-g)
 add_compile_options(-Wall)
 add_compile_options(-Wpedantic)
+add_compile_options(--debug)
 
 add_subdirectory(5B)
 
