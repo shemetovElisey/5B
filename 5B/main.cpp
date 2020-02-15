@@ -35,6 +35,11 @@ list *input() {
 	return p;
 }
 
+list* list_end(list* l) {
+	while(l->n != NULL){ l = l->n; }
+	return l;
+}
+
 void print_list(list *l) {
 	while(l) {
 		printf( "%d ", l->v );
