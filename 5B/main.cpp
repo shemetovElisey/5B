@@ -8,7 +8,6 @@
 
 #include <stdio.h>
 #include <locale.h>
-#include <ctype.h>
 
 #define printf_s printf
 #define scanf_s scanf
