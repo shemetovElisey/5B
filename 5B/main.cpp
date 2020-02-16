@@ -9,8 +9,10 @@
 #include <stdio.h>
 #include <locale.h>
 
+#ifdef _WINDOWS
 #define printf_s printf
 #define scanf_s scanf
+#endif
 
 struct list
 {
@@ -27,19 +29,16 @@ list *input()
     double inputVar;
     int res = 1;
     
-    printf_s("Введите действительные числа: \n");
-    scanf_s("%lf", &inputVar);
+    printf("Введите действительные числа: \n");
+    scanf("%lf", &inputVar);
     
     list *p, *b = new list(inputVar, NULL, NULL);
     p = b;
     
-    while(res)
+    while(scanf("%lf", &inputVar))
     {
-        res = scanf_s("%lf", &inputVar);
-        if (res) {
-            b = new list(inputVar, b, NULL);
-            b->prev->next = b;
-        }
+        b = new list(inputVar, b, NULL);
+        b->prev->next = b;
     }
 
     return p;
@@ -70,7 +69,7 @@ int main()
 {
     setlocale(LC_ALL, "Rus");
     list* expression = input();                        // ввод значений
-    printf_s("Ответ: %f\n", list_mult(expression));    // вывод ответа
+    printf("Ответ: %f\n", list_mult(expression));    // вывод ответа
     
     return 0;
 }
