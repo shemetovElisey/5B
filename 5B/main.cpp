@@ -24,22 +24,23 @@ struct list
     {}
 };
 
-list *input()
+list *input(const char *fileName)
 {
     double inputVar;
-    int res = 1;
     
-    printf("Введите действительные числа: \n");
-    scanf("%lf", &inputVar);
-    
+	FILE *fIn = fopen(fileName, "r");
+	fscanf( fIn, "%lf", &inputVar );
+
     list *p, *b = new list(inputVar, NULL, NULL);
     p = b;
     
-    while(scanf("%lf", &inputVar))
+    while(fscanf( fIn, "%lf", &inputVar ))
     {
         b = new list(inputVar, b, NULL);
         b->prev->next = b;
     }
+
+	fclose(fIn);
 
     return p;
 }
@@ -67,9 +68,10 @@ double list_mult(list *expr)
 
 int main()
 {
-    setlocale(LC_ALL, "Rus");
-    list* expression = input();                        // ввод значений
-    printf("Ответ: %f\n", list_mult(expression));    // вывод ответа
-    
+    list* in = input("input.txt");
+	double result = list_mult(in);
+	freopen ("output.txt","w",stdout);
+	printf("%lf", result);
+
     return 0;
 }
