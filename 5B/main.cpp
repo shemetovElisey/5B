@@ -68,25 +68,11 @@ int list_mult(list *expr)
     return mult;
 }
 
-void print_list(list *expr)
-{
-    printf_s("Элементы списка: ");
-    // вывод элементов списка
-    while(expr)
-    {
-        printf_s("%d ", expr->value);
-        expr = expr->next;
-    }
-    
-    printf_s("\n");
-}
-
 int main()
 {
     setlocale(LC_ALL, "Rus");
     list* expression = input();                 // ввод значений
-    print_list(expression);                     // вывод значений
-    printf_s("%d\n", list_mult(expression));    // вывод ответа
+    printf_s("Ответ: %d\n", list_mult(expression));    // вывод ответа
     
     return 0;
 }
