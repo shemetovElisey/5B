@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <locale.h>
+#include <ctype.h>
 
 #define printf_s printf
 #define scanf_s scanf
@@ -24,11 +25,8 @@ struct list
 
 list *input()
 {
-    int numberOfElements;
     double inputVar;
-    
-    printf_s("Введите количество элементов: ");
-    scanf_s("%d", &numberOfElements);
+    int res = 1;
     
     printf_s("Введите действительные числа: \n");
     scanf_s("%lf", &inputVar);
@@ -36,12 +34,13 @@ list *input()
     list *p, *b = new list(inputVar, NULL, NULL);
     p = b;
     
-    while(numberOfElements > 1)
+    while(res)
     {
-        scanf_s("%lf", &inputVar);
-        b = new list(inputVar, b, NULL);
-        b->prev->next = b;
-        numberOfElements--;
+        res = scanf_s("%lf", &inputVar);
+        if (res) {
+            b = new list(inputVar, b, NULL);
+            b->prev->next = b;
+        }
     }
 
     return p;
