@@ -53,11 +53,11 @@ list* list_end(list* l)
     return l;
 }
 
-int list_mult(list *expr)
+double list_mult(list *expr)
 {
     list *end = list_end(expr);
 
-    int mult = 1;
+    double mult = 1;
     while(expr->next)
     {
         mult = mult * (expr->value + expr->next->value + 2 * end->value);
@@ -72,7 +72,7 @@ int main()
 {
     setlocale(LC_ALL, "Rus");
     list* expression = input();                        // ввод значений
-    printf_s("Ответ: %d\n", list_mult(expression));    // вывод ответа
+    printf_s("Ответ: %f\n", list_mult(expression));    // вывод ответа
     
     return 0;
 }
