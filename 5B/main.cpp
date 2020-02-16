@@ -85,7 +85,7 @@ int main()
 {
     setlocale(LC_ALL, "Rus");
     list* expression = input();                 // ввод значений
-    print_list(expression);                     // печать значений
+    print_list(expression);                     // вывод значений
     printf_s("%d\n", list_mult(expression));    // вывод ответа
     
     return 0;
