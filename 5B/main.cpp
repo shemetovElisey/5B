@@ -14,10 +14,10 @@
 
 struct list
 {
-    int value;
+    double value;
     list *prev, *next;
 
-    list(int value, list *prev, list *next)
+    list(double value, list *prev, list *next)
         : value(value), prev(prev), next(next)
     {}
 };
@@ -25,20 +25,20 @@ struct list
 list *input()
 {
     int numberOfElements;
-    int inputVar;
+    double inputVar;
     
     printf_s("Введите количество элементов: ");
     scanf_s("%d", &numberOfElements);
     
     printf_s("Введите действительные числа: \n");
-    scanf_s("%d", &inputVar);
+    scanf_s("%lf", &inputVar);
     
     list *p, *b = new list(inputVar, NULL, NULL);
     p = b;
     
     while(numberOfElements > 1)
     {
-        scanf_s("%d", &inputVar);
+        scanf_s("%lf", &inputVar);
         b = new list(inputVar, b, NULL);
         b->prev->next = b;
         numberOfElements--;
