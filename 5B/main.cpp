@@ -71,7 +71,7 @@ int list_mult(list *expr)
 int main()
 {
     setlocale(LC_ALL, "Rus");
-    list* expression = input();                 // ввод значений
+    list* expression = input();                        // ввод значений
     printf_s("Ответ: %d\n", list_mult(expression));    // вывод ответа
     
     return 0;
