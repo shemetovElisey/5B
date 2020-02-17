@@ -45,6 +45,12 @@ list *input(const char *fileName)
     return p;
 }
 
+void output( const char *fileName, double result )
+{
+	freopen(fileName, "w", stdout);
+	printf("%lf", result);
+}
+
 list* list_end(list* l)
 {
     while(l->next != NULL){ l = l->next; }
@@ -70,8 +76,7 @@ int main()
 {
     list* in = input("input.txt");
 	double result = list_mult(in);
-	freopen ("output.txt","w",stdout);
-	printf("%lf", result);
+	output( "output.txt", result );
 
     return 0;
 }

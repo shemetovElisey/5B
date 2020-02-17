@@ -7,4 +7,5 @@ CMakeCache.txt
 5B/CMakeFiles/*
 5B/Makefile
 5B/cmake_install.cmake
-
+input.txt
+output.txt
