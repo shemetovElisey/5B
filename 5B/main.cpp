@@ -51,15 +51,15 @@ list* list_end(list* l)
     return l;
 }
 
-double list_mult(list *expr)
+double list_mult(list *e)
 {
-    list *end = list_end(expr);
+    list *end = list_end(e);
 
     double mult = 1;
-    while(expr->next)
+    while(e->next)
     {
-        mult = mult * (expr->value + expr->next->value + 2 * end->value);
-        expr = expr->next;
+        mult = mult * (e->value + e->next->value + 2 * end->value);
+        e = e->next;
         end = end->prev;
     }
 
