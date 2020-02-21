@@ -10,8 +10,8 @@
 #include <locale.h>
 
 #ifdef _WINDOWS
-#define printf_s printf
-#define scanf_s scanf
+#define fprintf_s fprintf
+#define fscanf_s fscanf
 #endif
 
 struct list
@@ -58,15 +58,15 @@ list* list_end(list* l)
     return l;
 }
 
-double list_mult(list *expr)
+double list_mult(list *p)
 {
-    list *end = list_end(expr);
+    list *end = list_end(p);
 
     double mult = 1;
-    while(expr->next)
+    while(p->next)
     {
-        mult = mult * (expr->value + expr->next->value + 2 * end->value);
-        expr = expr->next;
+        mult = mult * (p->value + p->next->value + 2 * end->value);
+        expr = p->next;
         end = end->prev;
     }
 
