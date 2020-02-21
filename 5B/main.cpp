@@ -28,33 +28,33 @@ list *input(const char *fileName)
 {
     double inputVar;
     
-	FILE *fIn = fopen(fileName, "r");
-	fscanf( fIn, "%lf", &inputVar );
+    FILE *fIn = fopen(fileName, "r");
+    fscanf(fIn, "%lf", &inputVar);
 
     list *p, *b = new list(inputVar, NULL, NULL);
     p = b;
     
-    while(fscanf( fIn, "%lf", &inputVar ))
+    while(!feof(fIn))
     {
+        fscanf(fIn, "%lf", &inputVar);
         b = new list(inputVar, b, NULL);
         b->prev->next = b;
     }
 
-	fclose(fIn);
+    fclose(fIn);
 
     return p;
 }
 
-void output( const char *fileName, double result )
+void output(const char *fileName, double result)
 {
-	freopen(fileName, "w", stdout);
-	printf("%lf", result);
+    freopen(fileName, "w", stdout);
+    printf("%lf", result);
 }
 
 list* list_end(list* l)
 {
-	for(;l->next; l = l->next){}
-    //while(l->next != NULL){ l = l->next; }
+    while(l->next != NULL){ l = l->next; }
     return l;
 }
 
@@ -66,7 +66,7 @@ double list_mult(list *p)
     while(p->next)
     {
         mult = mult * (p->value + p->next->value + 2 * end->value);
-        expr = p->next;
+        p = p->next;
         end = end->prev;
     }
 
@@ -76,8 +76,8 @@ double list_mult(list *p)
 int main()
 {
     list* in = input("input.txt");
-	double result = list_mult(in);
-	output( "output.txt", result );
+    double result = list_mult(in);
+    output("output.txt", result);
 
     return 0;
 }
