@@ -54,7 +54,7 @@ void output(const char *fileName, double result)
 
 list* list_end(list* l)
 {
-    while(l->next != NULL){ l = l->next; }
+    for(; l->next; l = l->next ) {}
     return l;
 }
 
