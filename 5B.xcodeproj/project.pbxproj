@@ -23,10 +23,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3C16250D23FFC3E6001FB5D6 /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; };
+		3C16250D23FFC3E6001FB5D6 /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; wrapsLines = 0; };
 		3C16250E23FFC3F5001FB5D6 /* output.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = output.txt; sourceTree = "<group>"; };
 		3CCF77EE23F6B61400C71FD8 /* 5B */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 5B; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CCF77F123F6B61400C71FD8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3CCF77F123F6B61400C71FD8 /* main.cpp */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; tabWidth = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
