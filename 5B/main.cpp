@@ -10,8 +10,8 @@
 #include <locale.h>
 
 #ifdef _WINDOWS
-#define fprintf_s fprintf
-#define fscanf_s fscanf
+#define fprintf fprintf_s
+#define fscanf fscanf_s
 #endif
 
 struct list
