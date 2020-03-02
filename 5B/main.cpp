@@ -19,7 +19,7 @@ struct list
     double value;
     list *prev, *next;
 
-    list(double value, list *prev, list *next)
+    list(double value = 0, list *prev = NULL, list *next = NULL)
         : value(value), prev(prev), next(next)
     {}
 };
@@ -31,15 +31,17 @@ list *input(const char *fileName)
     FILE *fIn = fopen(fileName, "r");
     fscanf(fIn, "%lf", &inputVar);
 
-    list *p, *b = new list(inputVar, NULL, NULL);
+    list *p, *b = new list(inputVar);
     p = b;
     
     while(!feof(fIn))
     {
         fscanf(fIn, "%lf", &inputVar);
-        b = new list(inputVar, b, NULL);
+        b = new list(inputVar, b, p);
         b->prev->next = b;
     }
+
+	p->prev = b;
 
     fclose(fIn);
 
@@ -52,22 +54,17 @@ void output(const char *fileName, double result)
     printf("%lf", result);
 }
 
-list* list_end(list* l)
+double list_mult(list *head)
 {
-    for(; l->next; l = l->next) {}
-    return l;
-}
-
-double list_mult(list *p)
-{
-    list *end = list_end(p);
+	list *l = head;
+    list *r = l->prev;
 
     double mult = 1;
-    while(p->next)
+    while(l->next->next != head)
     {
-        mult = mult * (p->value + p->next->value + 2 * end->value);
-        p = p->next;
-        end = end->prev;
+        mult = mult * (l->value + l->next->value + 2 * r->value);
+        l = l->next;
+        r = r->prev;
     }
 
     return mult;
@@ -75,9 +72,9 @@ double list_mult(list *p)
 
 int main()
 {
-    list* in = input("input.txt");
+    list* in = input("in.txt");
     double result = list_mult(in);
-    output("output.txt", result);
+    output("out.txt", result);
 
     return 0;
 }
